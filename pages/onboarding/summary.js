@@ -15,6 +15,7 @@ export default function Summary() {
     goals: '',
     foodPreferences: '',
     experienceLevel: '',
+    email: '', // DODATO email polje
   });
 
   const handleChange = (e) => {
@@ -38,6 +39,7 @@ export default function Summary() {
       goals: formData.goals.trim() || 'Unknown',
       foodPreferences: formData.foodPreferences.trim() || 'Unknown',
       experienceLevel: formData.experienceLevel.trim() || 'Unknown',
+      email: formData.email.trim() || 'Unknown', // DODATO email u preparedData
     };
 
     try {
@@ -72,7 +74,7 @@ export default function Summary() {
           <div key={key} className="flex flex-col">
             <label htmlFor={key} className="mb-1 capitalize">{t(key)}</label>
             <input
-              type="text"
+              type={key === 'email' ? 'email' : 'text'} // ako je email → email input
               name={key}
               value={formData[key]}
               onChange={handleChange}
