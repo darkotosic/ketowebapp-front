@@ -1,0 +1,15 @@
+{
+  "onboarding_title": "Onboarding Summary",
+  "submit_button": "Submit",
+  "gender": "Gender",
+  "age": "Age",
+  "height": "Height",
+  "weight": "Weight",
+  "targetWeight": "Target Weight",
+  "activityLevel": "Activity Level",
+  "goals": "Goals",
+  "foodPreferences": "Food Preferences",
+  "experienceLevel": "Experience Level",
+  "onboarding_success": "Onboarding data saved successfully!",
+  "onboarding_error": "Error saving data."
+}

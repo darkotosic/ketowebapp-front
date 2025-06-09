@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from '../../components/LanguageSwitcher';
 
 export default function Summary() {
+  const { t } = useTranslation('common');
+
   const [formData, setFormData] = useState({
     gender: '',
     age: '',
@@ -49,23 +53,24 @@ export default function Summary() {
       console.log('API Response:', data);
 
       if (data.success) {
-        alert('Onboarding data saved successfully!');
+        alert(t('onboarding_success'));
       } else {
-        alert(`Error saving data: ${data.error}`);
+        alert(`${t('onboarding_error')}: ${data.error}`);
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Error saving data.');
+      alert(t('onboarding_error'));
     }
   };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-      <h1 className="text-2xl font-bold mb-6">Onboarding Summary</h1>
+      <LanguageSwitcher />
+      <h1 className="text-2xl font-bold mb-6">{t('onboarding_title')}</h1>
       <form onSubmit={handleSubmit} className="space-y-4 w-full max-w-md bg-white p-6 rounded shadow">
         {Object.keys(formData).map((key) => (
           <div key={key} className="flex flex-col">
-            <label htmlFor={key} className="mb-1 capitalize">{key}</label>
+            <label htmlFor={key} className="mb-1 capitalize">{t(key)}</label>
             <input
               type="text"
               name={key}
@@ -80,7 +85,7 @@ export default function Summary() {
           type="submit"
           className="w-full bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600"
         >
-          Submit
+          {t('submit_button')}
         </button>
       </form>
     </div>

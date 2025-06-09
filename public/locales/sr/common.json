@@ -1,0 +1,15 @@
+{
+  "onboarding_title": "Onboarding sažetak",
+  "submit_button": "Pošalji",
+  "gender": "Pol",
+  "age": "Godine",
+  "height": "Visina",
+  "weight": "Težina",
+  "targetWeight": "Ciljna težina",
+  "activityLevel": "Nivo aktivnosti",
+  "goals": "Ciljevi",
+  "foodPreferences": "Prehrambene navike",
+  "experienceLevel": "Nivo iskustva",
+  "onboarding_success": "Onboarding podaci su uspešno sačuvani!",
+  "onboarding_error": "Greška prilikom čuvanja podataka."
+}
