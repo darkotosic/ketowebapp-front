@@ -23,13 +23,17 @@ export default function Summary() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Prepare data → convert numbers to Int where needed
+    // Prepare data → convert numbers to Int and clean strings
     const preparedData = {
-      ...formData,
-      age: parseInt(formData.age),
-      height: parseInt(formData.height),
-      weight: parseInt(formData.weight),
-      targetWeight: parseInt(formData.targetWeight),
+      age: parseInt(formData.age) || 0,
+      height: parseInt(formData.height) || 0,
+      weight: parseInt(formData.weight) || 0,
+      targetWeight: parseInt(formData.targetWeight) || 0,
+      gender: formData.gender.trim() || 'Unknown',
+      activityLevel: formData.activityLevel.trim() || 'Unknown',
+      goals: formData.goals.trim() || 'Unknown',
+      foodPreferences: formData.foodPreferences.trim() || 'Unknown',
+      experienceLevel: formData.experienceLevel.trim() || 'Unknown',
     };
 
     try {
@@ -47,7 +51,7 @@ export default function Summary() {
       if (data.success) {
         alert('Onboarding data saved successfully!');
       } else {
-        alert('Error saving data.');
+        alert(`Error saving data: ${data.error}`);
       }
     } catch (error) {
       console.error('Error:', error);
