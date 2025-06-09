@@ -23,13 +23,22 @@ export default function Summary() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Prepare data → convert numbers to Int where needed
+    const preparedData = {
+      ...formData,
+      age: parseInt(formData.age),
+      height: parseInt(formData.height),
+      weight: parseInt(formData.weight),
+      targetWeight: parseInt(formData.targetWeight),
+    };
+
     try {
       const response = await fetch('https://ketowebapp-api.onrender.com/api/onboarding/save', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(preparedData),
       });
 
       const data = await response.json();
